@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<HTML>
+  <head>
+    <style>
+    fieldset {
+      background-color: #eeeeee;
+    }
+    
+    legend {
+      background-color: gray;
+      color: white;
+      padding: 5px 10px;
+    }
+    
+    input {
+      margin: 5px;
+    }
+    font {
+      font-family: Arial, Helvetica, sans-serif;
+
+    }
+    </style>
+  </head>
+<meta charset="utf-8"/>
+<BODY>
+   <b><font color="#">Cadastro de dados do usuarios </font></b>    
+      </br> </br>   
+
+    <form action="_insert.php" method="post">
+      <fieldset>
+        <legend>Cadastro:</legend>
+        <input type=hidden name=tabela value="Usuarios">
+
+        <b> Código:</b> <input type="text" name="input_usuario_id" size="8">
+          </br></br>
+
+        <b> Nome:</b> <input type="text" name="input_username" size="50">
+          </br></br>
+
+        <b> Matricula:</b> <input type="text" name="input_matricula" size="20">
+          </br></br>
+
+          <b> Email:</b> <input type="text" name="input_email" size="30">
+        </br></br>
+
+        <b> Senha:</b> <input type="text" name="input_senha" size="30">
+          </br></br>
+
+          </br></br>
+        <input type="reset" value="Reset">   <input type="submit" value="Cadastrar">
+      </fieldset>
+   </form>
+
+</BODY>
+</HTML>
