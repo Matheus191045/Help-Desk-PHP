@@ -118,9 +118,7 @@ font, h3 {
 <meta charset="utf-8"/>
 <BODY>
   <ul>
-    <li><a class="active" href="EquipamentoSelect.php">Atualizar</a></li>
-    
-    <li><a href="index.html">Home</a></li>
+    <li><a class="active" href="indexTI.html">Home</a></li>
   </ul>
   <br>
   <br>

@@ -106,9 +106,7 @@ font, h3 {
 <BODY>
 
   <ul>
-    <li><a class="active" href="TipoEquipSelect.php">Atualizar</a></li>
-    
-    <li><a href="index.html">Home</a></li>
+    <li><a class="active" href="indexTI.html">Home</a></li>
   </ul>
   <br>
   <br>
