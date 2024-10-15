@@ -1,0 +1,74 @@
+
+IMPORTANTE COLOCAR NULL ALGUNS CAMPOS DAS TABELASSSSSSSSSSSSSSSSSSSSSSSS
+
+
+
+CREATE TABLE Usuarios (
+    usuario_id INT  PRIMARY KEY,
+    username VARCHAR(100),
+    matricula VARCHAR(10),
+    email VARCHAR(100),
+    senha VARCHAR(100),
+    
+);
+
+
+CREATE TABLE Tipo_Equipamento (
+    tipo_equip_id INT  PRIMARY KEY,
+    tipoEquipamento VARCHAR(100)
+);
+
+
+CREATE TABLE Equipamento (
+    id_equip INT  PRIMARY KEY,
+    nomeModelo VARCHAR(100),
+    nSerie VARCHAR(50),
+    data_aquisicao DATE,
+    tipo_equip_id INT,
+    FOREIGN KEY (tipo_equip_id) REFERENCES Tipo_Equipamento(tipo_equip_id)
+);
+
+
+CREATE TABLE Tipo_Chamado (
+    tipo_chamado_id INT  PRIMARY KEY,
+    tipoChamado VARCHAR(100)
+);
+
+
+
+
+
+CREATE TABLE Chamado (
+    id_chamado INT PRIMARY KEY,
+    setor VARCHAR(50),
+    titulo VARCHAR(255),
+    descricao VARCHAR(255),
+    data_abertura DATE,
+    data_fechamento DATE,
+    classificar VARCHAR(50),
+    status VARCHAR(50),
+    comentario VARCHAR(300),
+    usuario_id INT,
+    id_equip INT,
+    tipo_chamado_id INT,
+    tipo_equip_id INT,
+    FOREIGN KEY (usuario_id) REFERENCES Usuarios(usuario_id),
+    FOREIGN KEY (id_equip) REFERENCES Equipamento(id_equip),
+    FOREIGN KEY (tipo_chamado_id) REFERENCES Tipo_Chamado(tipo_chamado_id),
+    FOREIGN KEY (tipo_equip_id) REFERENCES Tipo_Equipamento(tipo_equip_id)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
