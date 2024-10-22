@@ -30,7 +30,6 @@
 
 
 
-
 header {
   margin:auto;
   padding:10px 20px;

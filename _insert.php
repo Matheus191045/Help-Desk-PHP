@@ -9,11 +9,11 @@
 
 
 if ($_POST["tabela"] == 'Chamado') {
-     
+     // Obter o último código inserido
      $codigo = getNextCodigo();
-     $data_abertura = date('Y-m-d'); 
+     $data_abertura = date('Y-m-d'); // Define a data atual
      $data_fechamento = '0001-01-01';
-     $status = 'Aberto'; 
+     $status = 'Aberto'; // Define status como 'aberto'
      CadastraChamado($codigo, $_POST["input_usuario_id"], $_POST["input_tipo_chamado_id"], $_POST["input_titulo"], $_POST["input_descricao"], $_POST["input_tipo_equip_id"], $_POST["input_id_equip"], $_POST["input_setor"], $_POST["input_classificar"], $status, $data_abertura, $data_fechamento );
      header("Location: Aberto.php");
  }
@@ -34,7 +34,7 @@ if($_POST["tabela"] == 'Tipo_Equipamento'){
  }
 
 
-
+// Função para obter o próximo código
 function getNextCodigo() {
      $conexao = conectaBD();
      $sql = "SELECT MAX(id_chamado) AS max_codigo FROM Chamado";

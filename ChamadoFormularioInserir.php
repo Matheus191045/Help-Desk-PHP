@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        
+        /* Estilo para o botão 'Voltar Home' */
 .btn-home {
     background-color: #4CAF50;
     color: white;
@@ -22,14 +22,14 @@
     background-color: #45a049;
 }
 
-
+/* Estilo básico */
 body {
     background-color: #f4f4f4;
     font-family: Arial, sans-serif;
     padding: 20px;
 }
 
-
+/* Formulário centralizado e responsivo */
 .form-container {
     max-width: 700px;
     margin: auto;
@@ -54,7 +54,7 @@ legend {
     font-size: 1.2em;
 }
 
-
+/* Organizando os elementos do formulário */
 .form-group {
     margin-bottom: 15px;
 }
@@ -73,7 +73,7 @@ input[type="text"], select {
     border-radius: 4px;
 }
 
-
+/* Botões */
 input[type="submit"], input[type="reset"] {
     background-color: #4CAF50;
     color: white;
@@ -87,14 +87,14 @@ input[type="submit"]:hover, input[type="reset"]:hover {
     background-color: #45a049;
 }
 
-
+/* Mensagem de erro */
 #message {
     display: none;
     color: red;
     margin-bottom: 15px;
 }
 
-
+/* Estilo responsivo */
 @media (max-width: 600px) {
     .form-container {
         padding: 15px;
@@ -114,7 +114,7 @@ input[type="submit"]:hover, input[type="reset"]:hover {
     </style>
 
     <script>
-    
+    // Função para mostrar/esconder campo de Equipamento
     function toggleEquipamentoField() {
         var tipoChamado = document.querySelector('select[name="input_tipo_chamado_id"]').value;
         var equipamentoField = document.getElementById('equipamentoField');
@@ -125,7 +125,7 @@ input[type="submit"]:hover, input[type="reset"]:hover {
         }
     }
 
-    
+    // Função para atualizar lista de equipamentos via AJAX
     function updateEquipamentoList() {
         var tipoEquipId = document.querySelector('select[name="input_tipo_equip_id"]').value;
         var equipamentoSelect = document.querySelector('select[name="input_id_equip"]');
@@ -141,7 +141,7 @@ input[type="submit"]:hover, input[type="reset"]:hover {
         xhr.send('tipo_equip_id=' + tipoEquipId);
     }
 
-    
+    // Validação de formulário
     function validateForm() {
         var usuario = document.querySelector('input[name="input_usuario_id"]').value;
         if (!usuario) {
@@ -166,13 +166,13 @@ input[type="submit"]:hover, input[type="reset"]:hover {
 
                 <input type="hidden" name="tabela" value="Chamado">
 
-                
+                <!-- Campo Usuário -->
                 <div class="form-group">
                     <label for="input_usuario_id">Usuário:</label>
                     <input type="text" name="input_usuario_id" id="input_usuario_id" size="30">
                 </div>
 
-               
+                <!-- Campo Tipo de Chamado -->
                 <div class="form-group">
                     <label for="input_tipo_chamado_id">Tipo de Chamado:</label>
                     <select name="input_tipo_chamado_id" id="input_tipo_chamado_id" onchange="toggleEquipamentoField()">
@@ -195,7 +195,7 @@ input[type="submit"]:hover, input[type="reset"]:hover {
                     </select>
                 </div>
 
-                
+                <!-- Campo Tipo Equipamento (escondido até necessário) -->
                 <div id="equipamentoField" class="form-group" style="display:none;">
                     <label for="input_tipo_equip_id">Tipo de Equipamento:</label>
                     <select name="input_tipo_equip_id" id="input_tipo_equip_id" onchange="updateEquipamentoList()">
@@ -218,7 +218,7 @@ input[type="submit"]:hover, input[type="reset"]:hover {
                     </select>
                 </div>
 
-                
+                <!-- Campo Equipamento (carregado via AJAX) -->
                 <div class="form-group">
                     <label for="input_id_equip">Selecionar Equipamento:</label>
                     <select name="input_id_equip" id="input_id_equip">
@@ -226,7 +226,7 @@ input[type="submit"]:hover, input[type="reset"]:hover {
                     </select>
                 </div>
 
-                
+                <!-- Outros campos -->
                 <div class="form-group">
                     <label for="input_titulo">Título:</label>
                     <input type="text" name="input_titulo" id="input_titulo" size="50">
@@ -268,7 +268,7 @@ input[type="submit"]:hover, input[type="reset"]:hover {
                     </select>
                 </div>
 
-                
+                <!-- Botões -->
                 <div class="form-group">
                 <a href="index.html" class="btn-home">Cancelar</a>
                     <input type="reset" value="Resetar">

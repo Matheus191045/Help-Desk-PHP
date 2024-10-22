@@ -65,6 +65,7 @@ li a {
   transition: background-color 0.3s;
 }
 
+
 li a:hover:not(.active) {
   background-color: #111;
 }
@@ -87,7 +88,7 @@ li a:hover:not(.active) {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 150px; 
+  max-width: 150px; /* Ajuste este valor conforme necessário */
 }
 
 
@@ -161,7 +162,7 @@ li a:hover:not(.active) {
   overflow-wrap: break-word;
 }
 
-
+/* Estilos para os ícones de ação */
 .action-btn {
   text-decoration: none;
   padding: 10px;
@@ -174,14 +175,14 @@ li a:hover:not(.active) {
   border: 2px solid #ccc;
 }
 
-
+/* Tamanho maior para os ícones */
 .action-btn i {
   font-size: 24px;
   transition: transform 0.3s, color 0.3s;
   display: inline-block;
 }
 
-
+/* Botão de edição com cor e animação */
 .action-btn.edit i {
   color: #4CAF50;
 }
@@ -191,7 +192,7 @@ li a:hover:not(.active) {
   transform: scale(1.2);
 }
 
-
+/* Botão de exclusão com cor e animação */
 .action-btn.delete i {
   color: #F44336;
 }
@@ -214,7 +215,7 @@ li a:hover:not(.active) {
   <li><a class="active" href="ChamadoFormularioInserir.php">Abrir Chamado</a></li>
   <li><a href="AbertoTI.php">Aberto</a></li>
   <li><a href="FechadoTI.php">Fechado</a></li>
-  <li><a href="TipoEquipSelect.php">Tutorial</a></li>
+  <li><a href="tutorial.html">Tutorial</a></li>
   <li><a href="UsuariosSelect.php">Usuarios</a></li>
   <li><a href="EquipamentoSelect.php">Equipamento</a></li>
   <li><a href="TipoEquipSelect.php">Tipo Equipamento</a></li>
@@ -229,7 +230,7 @@ li a:hover:not(.active) {
 </header>
 <br><br>
 
-
+<!-- Modal Structure -->
 <div id="myModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
@@ -249,7 +250,7 @@ li a:hover:not(.active) {
 </div>
 
 
-
+<!-- Table with ticket data -->
 <table id="customers" border="1" class="styled-table">
       <tr>
         <td><b>Código</b></td>
@@ -349,13 +350,13 @@ WHERE
         <h3><a class="button button1" href="ChamadoFormularioInserir.php">Cadastrar novo Chamado</a></h3>
 
 <script>
-
+// Get the modal
 var modal = document.getElementById("myModal");
 
-
+// Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-
+// Function to show the modal with data
 function showDetails(usuario, titulo, descricao, tipoEquipamento, equipamento, setor, dataAbertura, dataFechamento, Classificar, status, comentario) {
   document.getElementById("modalUsuario").textContent = usuario;
   document.getElementById("modalTitulo").textContent = titulo;
@@ -372,12 +373,12 @@ function showDetails(usuario, titulo, descricao, tipoEquipamento, equipamento, s
   modal.style.display = "block";
 }
 
-
+// Close the modal when "x" is clicked
 span.onclick = function() {
   modal.style.display = "none";
 }
 
-
+// Close the modal when clicked outside of the modal
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
