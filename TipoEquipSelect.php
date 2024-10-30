@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <HTML>
 <head>
+<title>Help Desk ADM TI</title>
 <style>
 
 .button {
@@ -27,7 +28,6 @@
   color: white;
   border: 2px solid #4CAF50;
 }
-
 
 
 
@@ -106,9 +106,8 @@ font, h3 {
 <BODY>
 
   <ul>
-    <li><a class="active" href="TipoEquipSelect.php">Atualizar</a></li>
-    
-    <li><a href="index.html">Home</a></li>
+    <li><a class="active" href="indexTI.html">Home</a></li>
+    <li><a href="TipoEquipFormularioInserir.html">Novo tipo equipamento</a></li>
   </ul>
   <br>
   <br>

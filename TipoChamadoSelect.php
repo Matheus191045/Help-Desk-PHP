@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <HTML>
 <head>
+<title>Help Desk ADM TI</title>
 <style>
 
 .button {
@@ -106,9 +107,8 @@ font, h3 {
 <BODY>
 
   <ul>
-    <li><a class="active" href="TipoChamadoSelect.php">Atualizar</a></li>
-    
-    <li><a href="index.html">Home</a></li>
+    <li><a class="active" href="indexTI.html">Home</a></li>
+    <li><a href="TipoChamadoFormularioInserir.html">Novo tipo chamado</a></li>
   </ul>
   <br>
   <br>

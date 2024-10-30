@@ -5,8 +5,9 @@ include_once("_conexao.php");
 
 
 if ($_POST["tabela"] == 'Chamado') {
-  editaChamado($_POST["input_id_chamado"],  $_POST["input_titulo"], $_POST["input_descricao"],  $_POST["input_setor"], $_POST["input_classificar"]);
-  header("Location: Aberto.php");
+  $data_fechamento = date('Y-m-d'); 
+  editaChamado($_POST["input_id_chamado"], $_POST["input_comentario"], $_POST["input_status"], $data_fechamento);
+  header("Location: AbertoTI.php");
 }
 
 
@@ -27,11 +28,11 @@ if($_POST["tabela"] == 'Tipo_Equipamento'){
 
 
 // --------------------------------- 
-function editaChamado($p1, $p2, $p3, $p4, $p5) {
+function editaChamado($p1, $p2, $p3, $p4) {
   $conexao = conectaBD();
 
   $dados = "UPDATE Chamado
-            SET  titulo = '{$p2}', descricao = '{$p3}',  setor = '{$p4}', classificar = '{$p5}'
+            SET  comentario = '{$p2}', status = '{$p3}', data_fechamento = '{$p4}'
             WHERE id_chamado = '{$p1}'";
 
 mysqli_query($conexao, $dados) or die(mysqli_error($conexao));

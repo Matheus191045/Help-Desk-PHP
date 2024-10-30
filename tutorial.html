@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Desk</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Verdana, sans-serif;
+            background-color: #31263d;
+            color: #f0f0f0;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        li {
+            float: left;
+        }
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+        .active {
+            background-color: #04AA6D;
+        }
+        .content {
+            padding: 20px;
+            margin-top: 50px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .text {
+            margin-left: 20px;
+            text-align: left;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        p {
+            margin: 20px 0;
+            font-size: 14px; 
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .step {
+            background-color: #444;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .step p {
+            margin: 0;
+        }
+    </style>
+    
+    <?php
+    session_start();
+    
+    
+    if (!isset($_SESSION['usuario_id']) || $_SESSION['user_role'] !== 'client') {
+        header("Location: login.html"); 
+        exit();
+    }
+    
+    $usuario_id = $_SESSION['usuario_id'];
+    $username = $_SESSION['username'];
+    
+    include('_conexao.php');
+    $conn = conectaBD();
+    $sql = "SELECT * FROM chamados WHERE usuario_id = '$usuario_id'";
+    $result = mysqli_query($conn, $sql);
+    ?>
+
+</head>
+<body>
+    <ul>
+        <li><a class="active" href="ChamadoFormularioInserir.php">Abrir Chamado</a></li>
+        <li><a href="Aberto.php">Aberto</a></li>
+        <li><a href="Fechado.php">Fechado</a></li>
+        <li><a href="tutorial.html">Tutorial</a></li>
+        <li style="float:right;"><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+    </ul>
+    <div class="content">
+        <img src="TU1.jpg" alt="Descrição da Imagem" style="width: 600px;">
+        <div class="text">
+            <h1>TUTORIAL</h1>
+            <div class="step">
+                <p><strong>Tipo de Chamado:</strong> Selecione uma das opções: Infraestrutura ou Sistema.</p>
+            </div>
+            <div class="step">
+                <p><strong>Tipo de Equipamento:</strong> Quando você selecionar, mostrará a lista de opções, por exemplo, Hardware, Rede, Impressão e Digitalizar.</p>
+            </div>
+            <div class="step">
+                <p><strong>Após selecionar o tipo, escolha a categoria específica:</strong> Por exemplo, Processadores, Memória RAM.</p>
+            </div>
+            <div class="step">
+                <p><strong>Digite no título e na descrição sobre o que você está precisando.</strong></p>
+            </div>
+            <div class="step">
+                <p><strong>Selecione o nome do setor onde você está trabalhando:</strong> Assim, o TI saberá onde você está.</p>
+            </div>
+            <div class="step">
+                <p><strong>Selecione a classificação do chamado na lista de opções:</strong> Por exemplo, Urgente, Sugestão, Problema de Software.</p>
+            </div>
+            <div class="step">
+                <p><strong>A tela de chamado 'aberto' deve mostrar uma tabela com as linhas onde você abriu um chamado.</strong></p>
+                <p>Obs: O campo status deve mostrar as opções 'aberto' e 'andamento'. 'Aberto' indica que o TI ainda não viu e deixa como 'aberto'. 'Andamento' aparece quando o TI vê sua mensagem e responde.</p>
+            </div>
+            <div class="step">
+                <p><strong>A tela de chamado 'fechado' deve mostrar uma tabela com o histórico das linhas onde você abriu um chamado.</strong></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

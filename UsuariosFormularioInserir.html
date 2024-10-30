@@ -1,55 +1,156 @@
 <!DOCTYPE HTML>
-<HTML>
+<html lang="pt-br">
   <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-    fieldset {
-      background-color: #eeeeee;
-    }
-    
-    legend {
-      background-color: gray;
-      color: white;
-      padding: 5px 10px;
-    }
-    
-    input {
-      margin: 5px;
-    }
-    font {
-      font-family: Arial, Helvetica, sans-serif;
+      /* Estilo para o botão 'Voltar Home' */
+      .btn-home {
+          background-color: #4CAF50;
+          color: white;
+          padding: 8px 20px;
+          border: none;
+          border-radius: 4px;
+          text-decoration: none;
+          display: inline-block;
+          cursor: pointer;
+          text-align: center;
+          font-size: 14px;
+      }
 
-    }
+      .btn-home:hover {
+          background-color: #45a049;
+      }
+
+      /* Estilo básico */
+      body {
+          background-color: #f4f4f4;
+          font-family: Arial, sans-serif;
+          padding: 20px;
+      }
+
+      /* Formulário centralizado e responsivo */
+      .form-container {
+          max-width: 700px;
+          margin: auto;
+          background-color: #fff;
+          padding: 20px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          border-radius: 8px;
+      }
+
+      fieldset {
+          border: 1px solid #ddd;
+          padding: 20px;
+          border-radius: 8px;
+          margin-bottom: 20px;
+      }
+
+      legend {
+          background-color: #4CAF50;
+          color: white;
+          padding: 5px 10px;
+          border-radius: 4px;
+          font-size: 1.2em;
+      }
+
+      /* Organizando os elementos do formulário */
+      .form-group {
+          margin-bottom: 15px;
+      }
+
+      label {
+          font-weight: bold;
+          display: block;
+          margin-bottom: 5px;
+      }
+
+      input[type="text"], select {
+          width: 100%;
+          padding: 8px;
+          margin-top: 5px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+      }
+
+      /* Botões */
+      input[type="submit"], input[type="reset"] {
+          background-color: #4CAF50;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+      }
+
+      input[type="submit"]:hover, input[type="reset"]:hover {
+          background-color: #45a049;
+      }
+
+      /* Mensagem de erro */
+      #message {
+          display: none;
+          color: red;
+          margin-bottom: 15px;
+      }
+
+      /* Estilo responsivo */
+      @media (max-width: 600px) {
+          .form-container {
+              padding: 15px;
+          }
+
+          input[type="submit"], input[type="reset"] {
+              width: 100%;
+              margin-top: 10px;
+          }
+
+          .btn-home {
+              width: 100%;
+              margin-top: 10px;
+          }
+      }
+
     </style>
   </head>
-<meta charset="utf-8"/>
-<BODY>
-   <b><font color="#">Cadastro de dados do usuarios </font></b>    
-      </br> </br>   
+  <body>
+    <div class="form-container">
+      <h2>Cadastro de dados do usuário</h2>    
+      <form action="_insert.php" method="post">
+        <fieldset>
+          <legend>Cadastro:</legend>
+          <input type="hidden" name="tabela" value="Usuarios">
 
-    <form action="_insert.php" method="post">
-      <fieldset>
-        <legend>Cadastro:</legend>
-        <input type=hidden name=tabela value="Usuarios">
+          <div class="form-group">
+            <label for="input_usuario_id">Código:</label>
+            <input type="text" name="input_usuario_id" id="input_usuario_id" size="8">
+          </div>
 
-        <b> Código:</b> <input type="text" name="input_usuario_id" size="8">
-          </br></br>
+          <div class="form-group">
+            <label for="input_username">Nome:</label>
+            <input type="text" name="input_username" id="input_username" size="50">
+          </div>
 
-        <b> Nome:</b> <input type="text" name="input_username" size="50">
-          </br></br>
+          <div class="form-group">
+            <label for="input_matricula">Matrícula:</label>
+            <input type="text" name="input_matricula" id="input_matricula" size="20">
+          </div>
 
-        <b> Matricula:</b> <input type="text" name="input_matricula" size="20">
-          </br></br>
+          <div class="form-group">
+            <label for="input_email">Email:</label>
+            <input type="text" name="input_email" id="input_email" size="30">
+          </div>
 
-          <b> Email:</b> <input type="text" name="input_email" size="30">
-        </br></br>
-
-        <b> Senha:</b> <input type="text" name="input_senha" size="30">
-          </br></br>
-
-          </br></br>
-        <input type="reset" value="Reset">   <input type="submit" value="Cadastrar">
-      </fieldset>
-   </form>
-
-</BODY>
-</HTML>
+          <div class="form-group">
+            <label for="input_senha">Senha:</label>
+            <input type="text" name="input_senha" id="input_senha" size="30">
+          </div>
+          
+          <a href="indexTI.html" class="btn-home">Cancelar</a>
+          <input type="reset" value="Reset">
+          <input type="submit" value="Cadastrar">
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>

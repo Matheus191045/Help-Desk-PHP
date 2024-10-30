@@ -8,32 +8,46 @@ if (!$conn) {
     die("Falha na conexão: " . mysqli_connect_error());
 }
 
-// Recebe os dados do formulário
-$user = $_POST['username'];
-$pass = $_POST['password'];
 
-// Consulta ao banco de dados usando consultas preparadas
-$stmt = $conn->prepare("SELECT * FROM usuarios WHERE username = ?");
-$stmt->bind_param("s", $user);
-$stmt->execute();
-$result = $stmt->get_result();
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (!empty($_POST['username']) && !empty($_POST['senha'])) {
+        
+        $user = $_POST['username'];
+        $pass = $_POST['senha'];
 
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    if (password_verify($pass, $row['password'])) {
-        $_SESSION['username'] = $user;
-        echo "Login bem-sucedido. Redirecionando...";
-        header("Location: index.html");
-        exit();
+        
+        if ($user === 'TiTi23' && $pass === 'T1Ti') {
+            session_regenerate_id(true); 
+            $_SESSION['username'] = $user;
+            $_SESSION['user_role'] = 'ti';
+            header("Location: indexTI.html");
+            exit();
+        } else {
+            
+            $sql = "SELECT usuario_id, username FROM usuarios WHERE username = '$user' AND senha = '$pass'";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                $row = mysqli_fetch_assoc($result);
+                session_regenerate_id(true); 
+                $_SESSION['usuario_id'] = $row['usuario_id'];
+                $_SESSION['username'] = $row['username'];
+                $_SESSION['user_role'] = 'client';
+                header("Location: index.html");
+                exit();
+            } else {
+                header("Location: login.html");
+                exit();
+            }
+        }
     } else {
-        echo "Senha incorreta.";
+        header("Location: login.html");
+        exit();
     }
 } else {
-    echo "Usuário não encontrado.";
+    header("Location: login.html");
+    exit();
 }
 
-$stmt->close();
-desconectaBD($conn);
+mysqli_close($conn);
 ?>
-
-

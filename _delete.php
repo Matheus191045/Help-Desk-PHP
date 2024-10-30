@@ -6,7 +6,7 @@
  
 if($get1 == 'Chamado'){
    excluirChamado($get2);
-   header("Location: ChamadoSelect.php");
+   header("Location: Aberto.php");
 }  
 
 if($get1 == 'Tipo_Chamado'){
@@ -31,8 +31,8 @@ if($get1 == 'Tipo_Equipamento'){
  function excluirCliente($p){
    $conexao = conectaBD();  
 
-   $dados= "DELETE FROM Cliente
-            WHERE  codigo = '{$p}'";
+   $dados= "DELETE FROM Usuarios
+            WHERE  usuario_id = '{$p}'";
 
    mysqli_query($conexao,$dados) or die(mysqli_error());
 
@@ -103,3 +103,5 @@ function excluirTipoEquipamento($p){
 }
 
 ?>
+
+

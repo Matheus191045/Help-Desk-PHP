@@ -2,7 +2,6 @@
  include_once("_conexao.php");
 
 
-
  if($_POST["tabela"] == 'Usuarios'){
      CadastraUsuarios($_POST["input_usuario_id"], $_POST["input_username"],  $_POST["input_matricula"], $_POST["input_email"], $_POST["input_senha"], );
      header("Location: UsuariosSelect.php");  
@@ -13,8 +12,10 @@ if ($_POST["tabela"] == 'Chamado') {
      // Obter o último código inserido
      $codigo = getNextCodigo();
      $data_abertura = date('Y-m-d'); // Define a data atual
-     CadastraChamado($codigo, $_POST["input_usuario_id"], $_POST["input_tipo_chamado_id"], $_POST["input_titulo"], $_POST["input_descricao"], $_POST["input_tipo_equip_id"], $_POST["input_id_equip"], $_POST["input_setor"], $_POST["input_classificar"], $data_abertura, $_POST["input_data_fechamento"]);
-     header("Location: ChamadoSelect.php");
+     $data_fechamento = '0001-01-01';
+     $status = 'Aberto'; // Define status como 'aberto'
+     CadastraChamado($codigo, $_POST["input_usuario_id"], $_POST["input_tipo_chamado_id"], $_POST["input_titulo"], $_POST["input_descricao"], $_POST["input_tipo_equip_id"], $_POST["input_id_equip"], $_POST["input_setor"], $_POST["input_classificar"], $status, $data_abertura, $data_fechamento );
+     header("Location: Aberto.php");
  }
 
 if($_POST["tabela"] == 'Tipo_Chamado'){
@@ -59,13 +60,15 @@ function CadastraUsuarios($usuario_id, $username, $matricula, $email, $senha ){
 
 
 // ---------------------------------
-function CadastraChamado($id_chamado, $usuario_id, $tipo_chamado_id, $titulo, $descricao, $tipo_equip_id, $id_equip, $setor, $classificar, $data_abertura, $data_fechamento) {
+function CadastraChamado($id_chamado, $usuario_id, $tipo_chamado_id, $titulo, $descricao, $tipo_equip_id, $id_equip, $setor, $classificar, $status, $data_abertura, $data_fechamento) {
      $conexao = conectaBD();
-     $dados = "INSERT INTO Chamado (id_chamado, usuario_id, tipo_chamado_id, titulo, descricao, tipo_equip_id, id_equip, setor, classificar, data_abertura, data_fechamento) VALUES ({$id_chamado}, {$usuario_id}, {$tipo_chamado_id}, '{$titulo}', '{$descricao}', {$tipo_equip_id}, {$id_equip}, '{$setor}', '{$classificar}', '{$data_abertura}', '{$data_fechamento}')";
+     $dados = "INSERT INTO Chamado (id_chamado, usuario_id, tipo_chamado_id, titulo, descricao, tipo_equip_id, id_equip, setor, classificar, status, data_abertura, data_fechamento) 
+               VALUES ({$id_chamado}, {$usuario_id}, {$tipo_chamado_id}, '{$titulo}', '{$descricao}', {$tipo_equip_id}, {$id_equip}, '{$setor}', '{$classificar}', '{$status}', '{$data_abertura}','{$data_fechamento}')";
      mysqli_query($conexao, $dados) or die(mysqli_error($conexao));
      echo "Cadastro com Sucesso!";
      desconectaBD($conexao);
  }
+ 
 
 // ---------------------------------
 function CadastraTipoChamado($tipo_chamado_id, $tipoChamado){

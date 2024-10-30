@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <HTML>
 <head>
+<title>Help Desk ADM TI</title>
 <style>
 
 .button {
@@ -118,9 +119,8 @@ font, h3 {
 <meta charset="utf-8"/>
 <BODY>
   <ul>
-    <li><a class="active" href="EquipamentoSelect.php">Atualizar</a></li>
-    
-    <li><a href="index.html">Home</a></li>
+    <li><a class="active" href="indexTI.html">Home</a></li>
+    <li><a href="EquipamentoFormularioInserir.php">Cadastrar novo equipamento</a></li>
   </ul>
   <br>
   <br>
