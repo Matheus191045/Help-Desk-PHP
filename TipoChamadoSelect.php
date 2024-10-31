@@ -1,7 +1,10 @@
 <!DOCTYPE HTML>
 <HTML>
 <head>
+<<<<<<< HEAD
 <title>Help Desk ADM TI</title>
+=======
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 <style>
 
 .button {
@@ -108,7 +111,10 @@ font, h3 {
 
   <ul>
     <li><a class="active" href="indexTI.html">Home</a></li>
+<<<<<<< HEAD
     <li><a href="TipoChamadoFormularioInserir.html">Novo tipo chamado</a></li>
+=======
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
   </ul>
   <br>
   <br>

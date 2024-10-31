@@ -3,9 +3,14 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Help Desk</title>
     <style>
         
+=======
+    <style>
+        /* Estilo para o botão 'Voltar Home' */
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 .btn-home {
     background-color: #4CAF50;
     color: white;
@@ -23,14 +28,22 @@
     background-color: #45a049;
 }
 
+<<<<<<< HEAD
 
+=======
+/* Estilo básico */
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 body {
     background-color: #f4f4f4;
     font-family: Arial, sans-serif;
     padding: 20px;
 }
 
+<<<<<<< HEAD
 
+=======
+/* Formulário centralizado e responsivo */
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 .form-container {
     max-width: 700px;
     margin: auto;
@@ -55,7 +68,11 @@ legend {
     font-size: 1.2em;
 }
 
+<<<<<<< HEAD
 
+=======
+/* Organizando os elementos do formulário */
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 .form-group {
     margin-bottom: 15px;
 }
@@ -74,7 +91,11 @@ input[type="text"], select {
     border-radius: 4px;
 }
 
+<<<<<<< HEAD
 
+=======
+/* Botões */
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 input[type="submit"], input[type="reset"] {
     background-color: #4CAF50;
     color: white;
@@ -88,14 +109,22 @@ input[type="submit"]:hover, input[type="reset"]:hover {
     background-color: #45a049;
 }
 
+<<<<<<< HEAD
 
+=======
+/* Mensagem de erro */
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 #message {
     display: none;
     color: red;
     margin-bottom: 15px;
 }
 
+<<<<<<< HEAD
 
+=======
+/* Estilo responsivo */
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 @media (max-width: 600px) {
     .form-container {
         padding: 15px;
@@ -114,6 +143,7 @@ input[type="submit"]:hover, input[type="reset"]:hover {
 
     </style>
 
+<<<<<<< HEAD
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
@@ -197,20 +227,143 @@ if (!isset($_SESSION['username'])) {
                         ?>
                     </select>
                 </div>
+=======
+    <script>
+    // Função para mostrar/esconder campo de Equipamento
+    function toggleEquipamentoField() {
+        var tipoChamado = document.querySelector('select[name="input_tipo_chamado_id"]').value;
+        var equipamentoField = document.getElementById('equipamentoField');
+        if (tipoChamado === '55') {
+            equipamentoField.style.display = 'block';
+        } else {
+            equipamentoField.style.display = 'none';
+        }
+    }
+
+    // Função para atualizar lista de equipamentos via AJAX
+    function updateEquipamentoList() {
+        var tipoEquipId = document.querySelector('select[name="input_tipo_equip_id"]').value;
+        var equipamentoSelect = document.querySelector('select[name="input_id_equip"]');
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'get_equipamentos.php', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.onload = function() {
+            if (this.status == 200) {
+                equipamentoSelect.innerHTML = this.responseText;
+            }
+        };
+        xhr.send('tipo_equip_id=' + tipoEquipId);
+    }
+
+    // Validação de formulário
+    function validateForm() {
+        var usuario = document.querySelector('input[name="input_usuario_id"]').value;
+        if (!usuario) {
+            document.getElementById('message').innerText = "Por favor, insira o nome do usuário.";
+            document.getElementById('message').style.display = 'block';
+            return false;
+        }
+        return true;
+    }
+    </script>
+</head>
+
+<BODY>
+    <div class="form-container">
+          
+
+        <div id="message"></div>
+
+        <form action="_insert.php" method="post" onsubmit="return validateForm()">
+            <fieldset>
+                <legend>Cadastro de Chamado</legend>
+
+                <input type="hidden" name="tabela" value="Chamado">
+
+                <!-- Campo Usuário -->
+                <div class="form-group">
+                    <label for="input_usuario_id">Usuário:</label>
+                    <input type="text" name="input_usuario_id" id="input_usuario_id" size="30">
+                </div>
+
+                <!-- Campo Tipo de Chamado -->
+                <div class="form-group">
+                    <label for="input_tipo_chamado_id">Tipo de Chamado:</label>
+                    <select name="input_tipo_chamado_id" id="input_tipo_chamado_id" onchange="toggleEquipamentoField()">
+                        <?php
+                            include_once("_conexao.php");
+                            $conn = conectaBD();
+                            $sql = "SELECT tc.tipo_chamado_id, tc.tipoChamado FROM Tipo_Chamado tc";
+                            $result = $conn->query($sql);
+
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<option value='" . $row["tipo_chamado_id"] . "'>" . $row["tipoChamado"] . "</option>";
+                                }
+                            } else {
+                                echo "<option value=''>Nenhum tipo Chamado encontrado</option>";
+                            }
+
+                            $conn->close();
+                        ?>
+                    </select>
+                </div>
+
+                <!-- Campo Tipo Equipamento (escondido até necessário) -->
+                <div id="equipamentoField" class="form-group" style="display:none;">
+                    <label for="input_tipo_equip_id">Tipo de Equipamento:</label>
+                    <select name="input_tipo_equip_id" id="input_tipo_equip_id" onchange="updateEquipamentoList()">
+                        <?php
+                            include_once("_conexao.php");
+                            $conn = conectaBD();
+                            $sql = "SELECT tipo_equip_id, tipoEquipamento FROM Tipo_Equipamento";
+                            $result = $conn->query($sql);
+
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<option value='" . $row["tipo_equip_id"] . "'>" . $row["tipoEquipamento"] . "</option>";
+                                }
+                            } else {
+                                echo "<option value=''>Nenhum tipo de equipamento encontrado</option>";
+                            }
+
+                            $conn->close();
+                        ?>
+                    </select>
+                </div>
+
+                <!-- Campo Equipamento (carregado via AJAX) -->
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
                 <div class="form-group">
                     <label for="input_id_equip">Selecionar Equipamento:</label>
                     <select name="input_id_equip" id="input_id_equip">
                         <option value=''>Selecione um tipo de equipamento primeiro</option>
                     </select>
                 </div>
+<<<<<<< HEAD
+=======
+
+                <!-- Outros campos -->
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
                 <div class="form-group">
                     <label for="input_titulo">Título:</label>
                     <input type="text" name="input_titulo" id="input_titulo" size="50">
                 </div>
+<<<<<<< HEAD
                 <div class="form-group">
                     <label for="input_descricao">Descrição:</label>
                     <textarea name="input_descricao" id="input_descricao" rows="3" cols="86"></textarea>
                 </div>
+=======
+
+                <div class="form-group">
+    <label for="input_descricao">Descrição:</label>
+    <textarea name="input_descricao" id="input_descricao" rows="3" cols="86"></textarea>
+</div>
+
+
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
                 <div class="form-group">
                     <label for="input_setor">Selecionar Setor:</label>
                     <select name="input_setor" id="input_setor">
@@ -224,6 +377,10 @@ if (!isset($_SESSION['username'])) {
                         <option value="Compras">Compras</option>
                     </select>
                 </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
                 <div class="form-group">
                     <label for="input_classificar">Classificação do Chamado:</label>
                     <select name="input_classificar" id="input_classificar">
@@ -236,6 +393,7 @@ if (!isset($_SESSION['username'])) {
                         <option value="software">Problema de Software</option>
                         <option value="hardware">Problema de Hardware</option>
                         <option value="sugestão">Sugestão</option>
+<<<<<<< HEAD
                         <option value="reclamação">Reclamação</option>
                     </select>
                 </div>
@@ -249,3 +407,23 @@ if (!isset($_SESSION['username'])) {
     </div>
 </body>
 </html>
+=======
+                        <option value="reclamacão">Reclamação</option>
+                    </select>
+                </div>
+
+                <!-- Botões -->
+                <div class="form-group">
+                <a href="index.html" class="btn-home">Cancelar</a>
+                    <input type="reset" value="Resetar">
+                    <input type="submit" value="Cadastrar">
+                </div>
+
+            </fieldset>
+        </form>
+        
+        
+    </div>
+</BODY>
+</HTML>
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d

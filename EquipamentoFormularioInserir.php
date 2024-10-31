@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <HTML>
+<<<<<<< HEAD
 <meta charset="utf-8"/>
 <head>
 <style>
@@ -110,6 +111,27 @@ input[type="submit"]:hover, input[type="reset"]:hover {
     }
 }
 
+=======
+<head>
+    <style>
+    fieldset {
+      background-color: #eeeeee;
+    }
+    
+    legend {
+      background-color: gray;
+      color: white;
+      padding: 5px 10px;
+    }
+    
+    input {
+      margin: 5px;
+    }
+    font {
+      font-family: Arial, Helvetica, sans-serif;
+
+    }
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
     </style>
   </head>
 <meta charset="utf-8"/>
@@ -119,6 +141,10 @@ input[type="submit"]:hover, input[type="reset"]:hover {
 
     <form action="_insert.php" method="post">
     <fieldset>
+<<<<<<< HEAD
+=======
+      <legend>Cadastro:</legend>
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 
         <input type=hidden name=tabela value="Equipamento">
 
@@ -165,11 +191,15 @@ $conn->close();
           </br></br>
 
           </br></br>
+<<<<<<< HEAD
           <div class="form-group">
                     <a href="indexTI.html" class="btn-home">Cancelar</a>
                     <input type="reset" value="Resetar">
                     <input type="submit" value="Cadastrar">
                 </div>
+=======
+        <input type="reset" value="Reset">   <input type="submit" value="Cadastrar">
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
     </fieldset>
    </form>
 

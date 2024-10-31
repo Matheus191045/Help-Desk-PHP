@@ -6,7 +6,11 @@
  
 if($get1 == 'Chamado'){
    excluirChamado($get2);
+<<<<<<< HEAD
    header("Location: Aberto.php");
+=======
+   header("Location: ChamadoSelect.php");
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 }  
 
 if($get1 == 'Tipo_Chamado'){
@@ -31,8 +35,13 @@ if($get1 == 'Tipo_Equipamento'){
  function excluirCliente($p){
    $conexao = conectaBD();  
 
+<<<<<<< HEAD
    $dados= "DELETE FROM Usuarios
             WHERE  usuario_id = '{$p}'";
+=======
+   $dados= "DELETE FROM Cliente
+            WHERE  codigo = '{$p}'";
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 
    mysqli_query($conexao,$dados) or die(mysqli_error());
 
@@ -102,6 +111,10 @@ function excluirTipoEquipamento($p){
    desconectaBD($conexao);
 }
 
+<<<<<<< HEAD
 ?>
 
 
+=======
+?>
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d

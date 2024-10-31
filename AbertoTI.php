@@ -1,7 +1,11 @@
 <!DOCTYPE HTML>
 <HTML>
 <head>
+<<<<<<< HEAD
 <title>Help Desk ADM TI</title>
+=======
+
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <style>
@@ -88,7 +92,11 @@ li a:hover:not(.active) {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+<<<<<<< HEAD
   max-width: 150px; 
+=======
+  max-width: 150px; /* Ajuste este valor conforme necessário */
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 }
 
 
@@ -116,7 +124,11 @@ li a:hover:not(.active) {
   margin-top: 50px;
 }
 
+<<<<<<< HEAD
 
+=======
+/* Modal styles */
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 .modal {
   display: none;
   position: fixed;
@@ -162,7 +174,11 @@ li a:hover:not(.active) {
   overflow-wrap: break-word;
 }
 
+<<<<<<< HEAD
 
+=======
+/* Estilos para os ícones de ação */
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 .action-btn {
   text-decoration: none;
   padding: 10px;
@@ -175,14 +191,22 @@ li a:hover:not(.active) {
   border: 2px solid #ccc;
 }
 
+<<<<<<< HEAD
 
+=======
+/* Tamanho maior para os ícones */
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 .action-btn i {
   font-size: 24px;
   transition: transform 0.3s, color 0.3s;
   display: inline-block;
 }
 
+<<<<<<< HEAD
 
+=======
+/* Botão de edição com cor e animação */
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 .action-btn.edit i {
   color: #4CAF50;
 }
@@ -192,7 +216,11 @@ li a:hover:not(.active) {
   transform: scale(1.2);
 }
 
+<<<<<<< HEAD
 
+=======
+/* Botão de exclusão com cor e animação */
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 .action-btn.delete i {
   color: #F44336;
 }
@@ -212,13 +240,24 @@ li a:hover:not(.active) {
 <meta charset="utf-8"/>
 <BODY>
 <ul>
+<<<<<<< HEAD
   <li><a class="active" href="AbertoTI.php">Aberto</a></li>
   <li><a href="FechadoTI.php">Fechado</a></li>
+=======
+  <li><a class="active" href="ChamadoFormularioInserir.php">Abrir Chamado</a></li>
+  <li><a href="AbertoTI.php">Aberto</a></li>
+  <li><a href="FechadoTI.php">Fechado</a></li>
+  <li><a href="tutorial.html">Tutorial</a></li>
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
   <li><a href="UsuariosSelect.php">Usuarios</a></li>
   <li><a href="EquipamentoSelect.php">Equipamento</a></li>
   <li><a href="TipoEquipSelect.php">Tipo Equipamento</a></li>
   <li><a href="TipoChamadoSelect.php">Tipo Chamado</a></li>
+<<<<<<< HEAD
   <li style="float:right;"><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+=======
+  <li style="float:right;"><a href="login.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li> <!-- "logout.php" -->
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 </ul>
   <br>
   <br>
@@ -345,6 +384,11 @@ WHERE
           ?>
         </table>
 
+<<<<<<< HEAD
+=======
+        <h3><a class="button button1" href="ChamadoFormularioInserir.php">Cadastrar novo Chamado</a></h3>
+
+>>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 <script>
 // Get the modal
 var modal = document.getElementById("myModal");
