@@ -3,7 +3,6 @@
 <head>
 <style>
 
-
 .button {
   border: none;
   color: white;
@@ -28,9 +27,6 @@
   color: white;
   border: 2px solid #4CAF50;
 }
-
-
-
 
 header {
   margin:auto;
@@ -173,7 +169,6 @@ font, h3 {
 
             $resultado = mysqli_query($conn,$select);
 
-
             while($i = mysqli_fetch_assoc($resultado)){
               $data_abertura = date("d/m/Y", strtotime($i['data_abertura']));
               $data_fechamento = date("d/m/Y", strtotime($i['data_fechamento']));
@@ -190,7 +185,6 @@ font, h3 {
                 <td><?php echo $data_abertura;?></td>
                 <td><?php echo $data_fechamento;?></td>
                 <td><?php echo $i['classificar'];?></td>
-
 
                 <td><a href="<?php echo"ChamadoFormularioEditar.php?var_id_chamado=". $i['id_chamado']."&var_tipoChamado=".$i['tipoChamado']."&var_titulo=".$i['titulo']."&var_descricao=".$i['descricao']."&var_tipoEquipamento=".$i['tipoEquipamento']."&var_nomeModelo=".$i['nomeModelo']."&var_setor=".$i['setor']."&var_classificar=".$i['classificar']?>">Alterar</a></td> 
                 <td><a href="<?php echo"_delete.php?var_cod=". $i['id_chamado']."&tabela=Chamado"?>">Excluir</a></td>

@@ -1,10 +1,7 @@
 <!DOCTYPE HTML>
 <HTML>
 <head>
-<<<<<<< HEAD
 <title>Help Desk ADM TI</title>
-=======
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 <style>
 
 .button {
@@ -32,13 +29,9 @@
   border: 2px solid #4CAF50;
 }
 
-
-
-
 header {
   margin:auto;
   padding:10px 20px;
-
 }
 
 ul {
@@ -97,7 +90,6 @@ a {
   text-align: left;
   background-color: #04AA6D;
   color: white;
-  
 }
 font, h3 {
   font-family: Arial, Helvetica, sans-serif;
@@ -111,10 +103,7 @@ font, h3 {
 
   <ul>
     <li><a class="active" href="indexTI.html">Home</a></li>
-<<<<<<< HEAD
     <li><a href="TipoChamadoFormularioInserir.html">Novo tipo chamado</a></li>
-=======
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
   </ul>
   <br>
   <br>
@@ -145,7 +134,7 @@ font, h3 {
                  <td><?php echo $i['tipo_chamado_id'];?></td>
                 <td><?php echo $i['tipoChamado'];?></td>
                 <td><a href="<?php echo"TipoChamadoFormularioEditar.php?var_tipo_chamado_id=". $i['tipo_chamado_id']."&var_tipoChamado=".$i['tipoChamado']?>">Alterar</a></td> 
-                <td><a href="<?php echo"_delete.php?var_cod=". $i['tipo_chamado_id']."&tabela=Tipo_Chamado"?>">Excluir</a></td>
+                <td><a href="<?php echo"_deleteTI.php?var_cod=". $i['tipo_chamado_id']."&tabela=Tipo_Chamado"?>">Excluir</a></td>
              </tr> 
             <?php
            }

@@ -1,12 +1,8 @@
 <!DOCTYPE HTML>
 <HTML>
 <head>
-<<<<<<< HEAD
 <title>Help Desk ADM TI</title>
-=======
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 <style>
-
 
 .button {
   border: none;
@@ -32,9 +28,6 @@
   color: white;
   border: 2px solid #4CAF50;
 }
-
-
-
 
 header {
   margin:auto;
@@ -88,8 +81,6 @@ a {
   border: 1px solid #ddd;
   padding: 8px;
   
-  
-  
 }
 
 #customers tr:nth-child(even){background-color: #f2f2f2;}
@@ -107,7 +98,6 @@ a {
 font, h3 {
   font-family: Arial, Helvetica, sans-serif;
   
-
 }
 
 </style>
@@ -117,10 +107,7 @@ font, h3 {
 
   <ul>
     <li><a class="active" href="indexTI.html">Home</a></li>
-<<<<<<< HEAD
     <li><a href="UsuariosFormularioInserir.html">Novo usuario</a></li>
-=======
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
   </ul>
   <br>
   <br>
@@ -157,8 +144,8 @@ font, h3 {
                 <td><?php echo $i['matricula'];?></td>
                 <td><?php echo $i['email'];?></td>
                 <td><?php echo $i['senha'];?></td>
-                <td><a href="<?php echo"UsuariosFormularioEditar.php?var_cod=". $i['usuario_id']."&var_username=".$i['username']."&var_matricula=".$i['matricula']."&var_email=".$i['email']."&var_senha=".$i['senha']?>">Alterar</a></td> 
-                <td><a href="<?php echo"_delete.php?var_cod=". $i['usuario_id']."&tabela=Usuarios"?>">Excluir</a></td>
+                <td><a href="<?php echo"UsuariosFormularioEditar.php?var_usuario_id=". $i['usuario_id']."&var_username=".$i['username']."&var_matricula=".$i['matricula']."&var_email=".$i['email']."&var_senha=".$i['senha']?>">Alterar</a></td> 
+                <td><a href="<?php echo"_deleteTI.php?var_cod=". $i['usuario_id']."&tabela=Usuarios"?>">Excluir</a></td>
              </tr> 
             <?php
            }

@@ -1,10 +1,9 @@
 <!DOCTYPE HTML>
 <HTML>
-<<<<<<< HEAD
 <meta charset="utf-8"/>
 <head>
 <style>
-        /* Estilo para o botão 'Voltar Home' */
+        
 .btn-home {
     background-color: #4CAF50;
     color: white;
@@ -22,13 +21,11 @@
     background-color: #45a049;
 }
 
-
 body {
     background-color: #f4f4f4;
     font-family: Arial, sans-serif;
     padding: 20px;
 }
-
 
 .form-container {
     max-width: 700px;
@@ -54,7 +51,6 @@ legend {
     font-size: 1.2em;
 }
 
-
 .form-group {
     margin-bottom: 15px;
 }
@@ -73,7 +69,6 @@ input[type="text"], select {
     border-radius: 4px;
 }
 
-
 input[type="submit"], input[type="reset"] {
     background-color: #4CAF50;
     color: white;
@@ -87,13 +82,11 @@ input[type="submit"]:hover, input[type="reset"]:hover {
     background-color: #45a049;
 }
 
-
 #message {
     display: none;
     color: red;
     margin-bottom: 15px;
 }
-
 
 @media (max-width: 600px) {
     .form-container {
@@ -111,27 +104,6 @@ input[type="submit"]:hover, input[type="reset"]:hover {
     }
 }
 
-=======
-<head>
-    <style>
-    fieldset {
-      background-color: #eeeeee;
-    }
-    
-    legend {
-      background-color: gray;
-      color: white;
-      padding: 5px 10px;
-    }
-    
-    input {
-      margin: 5px;
-    }
-    font {
-      font-family: Arial, Helvetica, sans-serif;
-
-    }
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
     </style>
   </head>
 <meta charset="utf-8"/>
@@ -141,15 +113,8 @@ input[type="submit"]:hover, input[type="reset"]:hover {
 
     <form action="_insert.php" method="post">
     <fieldset>
-<<<<<<< HEAD
-=======
-      <legend>Cadastro:</legend>
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 
         <input type=hidden name=tabela value="Equipamento">
-
-        <b> Código:</b> <input type="text" name="input_id_equip" size="8">
-          </br></br>
 
 
           <b> Tipo Equipamento:</b> 
@@ -178,9 +143,6 @@ $conn->close();
         </select>
           </br></br>
 
-
-
-
         <b> Nome modelo:</b> <input type="text" name="input_nomeModelo" size="25">
           </br></br>
 
@@ -191,15 +153,11 @@ $conn->close();
           </br></br>
 
           </br></br>
-<<<<<<< HEAD
           <div class="form-group">
                     <a href="indexTI.html" class="btn-home">Cancelar</a>
                     <input type="reset" value="Resetar">
                     <input type="submit" value="Cadastrar">
                 </div>
-=======
-        <input type="reset" value="Reset">   <input type="submit" value="Cadastrar">
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
     </fieldset>
    </form>
 

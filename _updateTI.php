@@ -2,14 +2,11 @@
 include_once("_conexao.php");
 
 
-
-
 if ($_POST["tabela"] == 'Chamado') {
   $data_fechamento = date('Y-m-d'); 
   editaChamado($_POST["input_id_chamado"], $_POST["input_comentario"], $_POST["input_status"], $data_fechamento);
   header("Location: AbertoTI.php");
 }
-
 
 if($_POST["tabela"] == 'Tipo_Chamado'){
   editaTipoChamado($_POST["input_tipo_chamado_id"], $_POST["input_tipoChamado"], );
@@ -26,8 +23,29 @@ if($_POST["tabela"] == 'Tipo_Equipamento'){
   header("Location: TipoEquipSelect.php"); 
 }
 
+if($_POST["tabela"] == 'Usuarios'){
+  editaUsuarios($_POST["input_usuario_id"], $_POST["input_username"], $_POST["input_matricula"], $_POST["input_email"], $_POST["input_senha"],);
+  header("Location: UsuariosSelect.php"); 
+}
 
 // --------------------------------- 
+
+function editaUsuarios($p1, $p2, $p3, $p4, $p5) {
+  $conexao = conectaBD();
+
+  $dados = "UPDATE Usuarios
+            SET  username = '{$p2}', matricula = '{$p3}', email = '{$p4}', senha = '{$p5}'
+            WHERE usuario_id = '{$p1}'";
+
+mysqli_query($conexao, $dados) or die(mysqli_error($conexao));
+
+echo "Editado com Sucesso!";
+
+desconectaBD($conexao);
+}
+
+// ---------------------------------
+
 function editaChamado($p1, $p2, $p3, $p4) {
   $conexao = conectaBD();
 
@@ -49,7 +67,7 @@ function editaTipoChamado($p1, $p2) {
 
   $dados = "UPDATE Tipo_Chamado
             SET tipoChamado = '{$p2}'
-            WHERE id_tipo_chamado = '{$p1}'";
+            WHERE tipo_chamado_id = '{$p1}'";
 
   mysqli_query($conexao, $dados) or die(mysqli_error($conexao));
 
@@ -79,7 +97,7 @@ function editaTipoEquipamento($p1, $p2) {
 
   $dados = "UPDATE Tipo_Equipamento
             SET tipoEquipamento = '{$p2}'
-            WHERE id_tipo_equip = '{$p1}'";
+            WHERE tipo_equip_id = '{$p1}'";
 
   mysqli_query($conexao, $dados) or die(mysqli_error($conexao));
 

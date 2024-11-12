@@ -1,10 +1,7 @@
 <!DOCTYPE HTML>
 <HTML>
 <head>
-<<<<<<< HEAD
 <title>Help Desk ADM TI</title>
-=======
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 <style>
 
 .button {
@@ -31,8 +28,6 @@
   color: white;
   border: 2px solid #4CAF50;
 }
-
-
 
 header {
   margin:auto;
@@ -110,10 +105,7 @@ font, h3 {
 
   <ul>
     <li><a class="active" href="indexTI.html">Home</a></li>
-<<<<<<< HEAD
     <li><a href="TipoEquipFormularioInserir.html">Novo tipo equipamento</a></li>
-=======
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
   </ul>
   <br>
   <br>
@@ -144,7 +136,7 @@ font, h3 {
                  <td><?php echo $i['tipo_equip_id'];?></td>
                 <td><?php echo $i['tipoEquipamento'];?></td>
                 <td><a href="<?php echo"TipoEquipFormularioEditar.php?var_tipo_equip_id=". $i['tipo_equip_id']."&var_tipoEquipamento=".$i['tipoEquipamento']?>">Alterar</a></td> 
-                <td><a href="<?php echo"_delete.php?var_cod=". $i['tipo_equip_id']."&tabela=Tipo_Equipamento"?>">Excluir</a></td>
+                <td><a href="<?php echo"_deleteTI.php?var_cod=". $i['tipo_equip_id']."&tabela=Tipo_Equipamento"?>">Excluir</a></td>
              </tr> 
             <?php
            }

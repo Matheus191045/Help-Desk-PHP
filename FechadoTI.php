@@ -1,11 +1,7 @@
 <!DOCTYPE HTML>
 <HTML>
 <head>
-<<<<<<< HEAD
 <title>Help Desk ADM TI</title>
-=======
-
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <style>
@@ -91,11 +87,7 @@ li a:hover:not(.active) {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-<<<<<<< HEAD
   max-width: 150px; 
-=======
-  max-width: 150px; /* Ajuste este valor conforme necessário */
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 }
 
 #customers tr:nth-child(even) {
@@ -119,11 +111,6 @@ li a:hover:not(.active) {
   margin-top: 50px;
 }
 
-<<<<<<< HEAD
-
-=======
-/* Modal styles */
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 .modal {
   display: none;
   position: fixed;
@@ -169,11 +156,6 @@ li a:hover:not(.active) {
   overflow-wrap: break-word;
 }
 
-<<<<<<< HEAD
-
-=======
-/* Estilos para os ícones de ação */
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 .action-btn {
   text-decoration: none;
   padding: 10px;
@@ -186,22 +168,12 @@ li a:hover:not(.active) {
   border: 2px solid #ccc;
 }
 
-<<<<<<< HEAD
-
-=======
-/* Tamanho maior para os ícones */
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 .action-btn i {
   font-size: 24px;
   transition: transform 0.3s, color 0.3s;
   display: inline-block;
 }
 
-<<<<<<< HEAD
-
-=======
-/* Botão de edição com cor e animação */
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 .action-btn.edit i {
   color: #4CAF50;
 }
@@ -211,11 +183,6 @@ li a:hover:not(.active) {
   transform: scale(1.2);
 }
 
-<<<<<<< HEAD
-
-=======
-/* Botão de exclusão com cor e animação */
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 .action-btn.delete i {
   color: #F44336;
 }
@@ -225,34 +192,18 @@ li a:hover:not(.active) {
   transform: scale(1.2);
 }
 
-
-
 </style>
-
-
-
 </head>
 <meta charset="utf-8"/>
 <BODY>
 <ul>
-<<<<<<< HEAD
   <li><a class="active" href="AbertoTI.php">Aberto</a></li>
   <li><a href="FechadoTI.php">Fechado</a></li>
-=======
-  <li><a class="active" href="ChamadoFormularioInserir.php">Abrir Chamado</a></li>
-  <li><a href="AbertoTI.php">Aberto</a></li>
-  <li><a href="FechadoTI.php">Fechado</a></li>
-  <li><a href="tutorial.html">Tutorial</a></li>
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
   <li><a href="UsuariosSelect.php">Usuarios</a></li>
   <li><a href="EquipamentoSelect.php">Equipamento</a></li>
   <li><a href="TipoEquipSelect.php">Tipo Equipamento</a></li>
   <li><a href="TipoChamadoSelect.php">Tipo Chamado</a></li>
-<<<<<<< HEAD
   <li style="float:right;"><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
-=======
-  <li style="float:right;"><a href="login.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li> <!-- "logout.php" -->
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 </ul>
   <br>
   <br>
@@ -261,8 +212,6 @@ li a:hover:not(.active) {
    <b><font color="#">Lista chamado</font></b>
 </header>
 <br><br>
-
-<!-- Modal Structure -->
 <div id="myModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
@@ -281,8 +230,6 @@ li a:hover:not(.active) {
   </div>
 </div>
 
-
-<!-- Table with ticket data -->
 <table id="customers" border="1">
       <tr>
         <td><b>Código</b></td>
@@ -345,10 +292,7 @@ WHERE
 ORDER BY c.id_chamado DESC;
 ";
 
-
             $resultado = mysqli_query($conn,$select);
-
-
             while($i = mysqli_fetch_assoc($resultado)) {
               $data_abertura = date("d/m/Y", strtotime($i['data_abertura']));
               $data_fechamento = date("d/m/Y", strtotime($i['data_fechamento']));
@@ -358,34 +302,24 @@ ORDER BY c.id_chamado DESC;
             <td><?php echo $i['username']; ?></td>
             <td><?php echo $i['tipoChamado']; ?></td>
             <td><?php echo $i['titulo']; ?></td>
-            
-            
             <td><?php echo $i['setor']; ?></td>
             <td><?php echo $data_abertura; ?></td>
             <td><?php echo $data_fechamento; ?></td>
             <td><?php echo $i['classificar']; ?></td>
             <td style="background-color: DarkGreen; color: white; padding: 10px; text-decoration: none; border-radius: 5px; text-align: center;"><b><?php echo $i['status']; ?></b></td>
             <td><a href="<?php echo"ChamadoFormularioResponder.php?var_id_chamado=". $i['id_chamado']."&var_tipoChamado=".$i['tipoChamado']."&var_titulo=".$i['titulo']."&var_descricao=".$i['descricao']."&var_tipoEquipamento=".$i['tipoEquipamento']."&var_nomeModelo=".$i['nomeModelo']."&var_setor=".$i['setor']."&var_classificar=".$i['classificar']?>"style="background-color: green; color: white; padding: 5px; text-decoration: none; border-radius: 5px;">Alterar</a></td> 
-            <td><a href="_delete.php?var_cod=<?php echo $i['id_chamado']; ?>&tabela=Chamado" style="background-color: red; color: white; padding: 5px; text-decoration: none; border-radius: 5px;">Excluir</a></td>
+            <td><a href="_deleteTI.php?var_cod=<?php echo $i['id_chamado']; ?>&tabela=Chamado" style="background-color: red; color: white; padding: 5px; text-decoration: none; border-radius: 5px;">Excluir</a></td>
           </tr>
           <?php
             }
           ?>
         </table>
 
-<<<<<<< HEAD
-=======
-        <h3><a class="button button1" href="ChamadoFormularioInserir.php">Cadastrar novo Chamado</a></h3>
-
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 <script>
-// Get the modal
 var modal = document.getElementById("myModal");
 
-// Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// Function to show the modal with data
 function showDetails(usuario, titulo, descricao, tipoEquipamento, equipamento, setor, dataAbertura, dataFechamento, Classificar, status, comentario) {
   document.getElementById("modalUsuario").textContent = usuario;
   document.getElementById("modalTitulo").textContent = titulo;
@@ -402,19 +336,16 @@ function showDetails(usuario, titulo, descricao, tipoEquipamento, equipamento, s
   modal.style.display = "block";
 }
 
-// Close the modal when "x" is clicked
 span.onclick = function() {
   modal.style.display = "none";
 }
 
-// Close the modal when clicked outside of the modal
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
 </script>
-
 </BODY>
 </HTML>
 

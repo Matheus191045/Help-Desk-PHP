@@ -78,7 +78,6 @@
           <input type="hidden" name="input_id_chamado" value="<?php echo $get5 ?>">
           <input type="hidden" name="input_status" value="fechado">
 
-          
           <label for="input_titulo">Título:</label>
           <input type="text" name="input_titulo" value="<?php echo $get1?>">
 

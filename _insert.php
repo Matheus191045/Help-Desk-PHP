@@ -3,13 +3,14 @@
 
 
  if($_POST["tabela"] == 'Usuarios'){
-     CadastraUsuarios($_POST["input_usuario_id"], $_POST["input_username"],  $_POST["input_matricula"], $_POST["input_email"], $_POST["input_senha"], );
+     $codigoUsuario = getNextCodigoUsuario();
+     CadastraUsuarios($codigoUsuario, $_POST["input_username"],  $_POST["input_matricula"], $_POST["input_email"], $_POST["input_senha"], );
      header("Location: UsuariosSelect.php");  
 }
 
 
 if ($_POST["tabela"] == 'Chamado') {
-     // Obter o último código inserido
+     //último código inserido
      $codigo = getNextCodigo();
      $data_abertura = date('Y-m-d'); // Define a data atual
      $data_fechamento = '0001-01-01';
@@ -24,17 +25,19 @@ if($_POST["tabela"] == 'Tipo_Chamado'){
 }
 
 if($_POST["tabela"] == 'Equipamento'){
-     CadastraEquipamento($_POST["input_id_equip"], $_POST["input_tipo_equip_id"], $_POST["input_nomeModelo"], $_POST["input_nSerie"], $_POST["input_data_aquisicao"],);
+     $codigoEquip = getNextCodigoEquip();
+     CadastraEquipamento($codigoEquip, $_POST["input_tipo_equip_id"], $_POST["input_nomeModelo"], $_POST["input_nSerie"], $_POST["input_data_aquisicao"],);
      header("Location: EquipamentoSelect.php"); 
 }
 
 if($_POST["tabela"] == 'Tipo_Equipamento'){
-      CadastraTipoEquipamento($_POST["input_tipo_equip_id"], $_POST["input_tipoEquipamento"],);
-      header("Location: TipoEquipSelect.php"); 
+     $codigoTipoEquip = getNextCodigoTipoEquip();
+     CadastraTipoEquipamento($codigoTipoEquip, $_POST["input_tipoEquipamento"],);
+     header("Location: TipoEquipSelect.php"); 
  }
 
 
-// Função para obter o próximo código
+
 function getNextCodigo() {
      $conexao = conectaBD();
      $sql = "SELECT MAX(id_chamado) AS max_codigo FROM Chamado";
@@ -45,19 +48,67 @@ function getNextCodigo() {
      return $max_codigo + 1;
  }
 
+function getNextCodigoUsuario() { 
+     $conexao = conectaBD(); 
+     $sql = "SELECT MAX(usuario_id) AS max_codigo FROM Usuarios"; 
+     $result = mysqli_query($conexao, $sql); 
+     if (!$result) { 
+          die("Erro na consulta: " . mysqli_error($conexao)); 
+     } 
+     $row = mysqli_fetch_assoc($result); 
+     if ($row) { 
+          $max_codigo = $row['max_codigo']; 
+     } else { 
+          $max_codigo = 0; } 
+          desconectaBD($conexao); 
+          return $max_codigo + 1; 
+     }
+
+
+function getNextCodigoEquip() { 
+     $conexao = conectaBD(); 
+     $sql = "SELECT MAX(id_equip) AS max_codigo FROM Equipamento"; 
+     $result = mysqli_query($conexao, $sql); 
+     if (!$result) { 
+          die("Erro na consulta: " . mysqli_error($conexao)); 
+     } 
+     $row = mysqli_fetch_assoc($result); 
+     if ($row) { 
+          $max_codigo = $row['max_codigo']; 
+     } else { 
+          $max_codigo = 0; } 
+          desconectaBD($conexao); 
+          return $max_codigo + 1; 
+     }
+
+     function getNextCodigoTipoEquip() { 
+          $conexao = conectaBD(); 
+          $sql = "SELECT MAX(tipo_equip_id) AS max_codigo FROM Tipo_Equipamento"; 
+          $result = mysqli_query($conexao, $sql); 
+          if (!$result) { 
+               die("Erro na consulta: " . mysqli_error($conexao)); 
+          } 
+          $row = mysqli_fetch_assoc($result); 
+          if ($row) { 
+               $max_codigo = $row['max_codigo']; 
+          } else { 
+               $max_codigo = 0; } 
+               desconectaBD($conexao); 
+               return $max_codigo + 1; 
+          }
+
 
 // ---------------------------------
 function CadastraUsuarios($usuario_id, $username, $matricula, $email, $senha ){
      $conexao = conectaBD();  
   
      $dados= "INSERT INTO Usuarios (usuario_id, username, matricula, email, senha) VALUES ({$usuario_id}, '{$username}','{$matricula}','{$email}', '{$senha}')";
-     mysqli_query($conexao,$dados) or die(mysqli_error());
+     mysqli_query($conexao,$dados) or die(mysqli_error($conexao));
   
      echo "Cadastro com Sucesso!";
   
      desconectaBD($conexao);
   }
-
 
 // ---------------------------------
 function CadastraChamado($id_chamado, $usuario_id, $tipo_chamado_id, $titulo, $descricao, $tipo_equip_id, $id_equip, $setor, $classificar, $status, $data_abertura, $data_fechamento) {

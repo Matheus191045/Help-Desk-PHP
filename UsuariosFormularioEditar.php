@@ -1,7 +1,9 @@
 <!DOCTYPE HTML>
-<HTML>
-<head>
-<style>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
       
       .btn-home {
           background-color: #4CAF50;
@@ -105,25 +107,41 @@
 
     </style>
   </head>
-<meta charset="utf-8"/>
-<BODY>
-   <?php
-      $get1 = filter_input(INPUT_GET, "var_tipoEquipamento");
-      $get2 = filter_input(INPUT_GET, "var_tipo_equip_id");
+  <body>
+
+  <?php
+      $get1 = filter_input(INPUT_GET, "var_username");
+      $get2 = filter_input(INPUT_GET, "var_matricula");
+      $get3 = filter_input(INPUT_GET, "var_email");
+      $get4 = filter_input(INPUT_GET, "var_senha");
+      $get5 = filter_input(INPUT_GET, "var_usuario_id");
    ?>
-   <b><font color="#">Tela de edição tipo equipamento</font></b>    
-      </br> </br>   
 
-    <form action="_updateTI.php" method="post">
-    <fieldset>
-         <input type=hidden name=tabela value="Tipo_Equipamento">
-         <input type="hidden" name="input_tipo_equip_id" value="<?php echo $get2 ?>">
-         <b> Tipo Equipamento:</b> <input type="text" name="input_tipoEquipamento" size="8" value="<?php echo $get1?>">
-            </br></br>
-         <a href="TipoEquipSelect.php" class="btn-home">Cancelar</a>
-         <input type="submit" value="Salvar">
-    </fieldset>
-   </form>
+    <div class="form-container">
+      <h2>Tela de Edição de Usuario</h2>    
+      <form action="_updateTI.php" method="post">
+        <fieldset>
+          <input type="hidden" name="tabela" value="Usuarios">
+          <input type="hidden" name="input_usuario_id" value="<?php echo $get5 ?>">
+           
+          <b>Nome:</b> <input type="text" name="input_username" size="30" value="<?php echo $get1 ?>">
+          </br></br> 
 
-</BODY>
-</HTML>   
+          <b>Matrícula:</b> <input type="text" name="input_matricula" size="30" value="<?php echo $get2 ?>">
+          </br></br>
+
+          <b>Email:</b> <input type="text" name="input_email" size="30" value="<?php echo $get3 ?>">
+          </br></br>
+
+          <b>Senha:</b> <input type="text" name="input_senha" size="30" value="<?php echo $get4 ?>">
+          </br></br>
+          
+          <a href="UsuariosSelect.php" class="btn-home">Cancelar</a>
+          <input type="submit" value="Salvar">
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>
+
+

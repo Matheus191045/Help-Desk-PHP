@@ -79,26 +79,20 @@
           <input type="hidden" name="tabela" value="Chamado">
           <input type="hidden" name="input_id_chamado" value="<?php echo $get7 ?>">
           
-
           <label for="input_comentario">Comentário:</label>
           <textarea name="input_comentario" rows="4" cols="50"><?php echo $get1?></textarea>
 
-    
           <label for="input_status">Situação:</label>
           <select name="input_status">
             <option value="Andamento" <?php if($get2 == "Andamento") echo 'selected'; ?>>Em andamento</option>
             <option value="Fechado" <?php if($get2 == "Fechado") echo 'selected'; ?>>Fechado</option>
           </select>
 
-          <!-- <label for="input_username">Usuário:</label>
-          <input type="text" name="input_username" value=" readonly> -->
-
           <label for="input_titulo">Título:</label>
           <input type="text" name="input_titulo" value="<?php echo $get3?>" readonly>
 
           <label for="input_descricao">Descrição:</label>
           <textarea name="input_descricao" rows="3" readonly><?php echo $get4?></textarea>
-
 
           <label for="input_setor">Setor:</label>
           <input type="text" name="input_setor" value="<?php echo $get5?>" readonly>

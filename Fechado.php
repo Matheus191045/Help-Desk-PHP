@@ -1,9 +1,7 @@
 <!DOCTYPE HTML>
 <HTML>
 <head>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 <style>
 body {
   margin: 0;
@@ -87,11 +85,7 @@ li a:hover:not(.active) {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-<<<<<<< HEAD
   max-width: 150px; 
-=======
-  max-width: 150px; /* Ajuste este valor conforme necessário */
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 }
 
 #customers tr:nth-child(even) {
@@ -115,11 +109,6 @@ li a:hover:not(.active) {
   margin-top: 50px;
 }
 
-<<<<<<< HEAD
-
-=======
-/* Modal styles */
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 .modal {
   display: none;
   position: fixed;
@@ -165,11 +154,6 @@ li a:hover:not(.active) {
   overflow-wrap: break-word;
 }
 
-<<<<<<< HEAD
-
-=======
-/* Estilos para os ícones de ação */
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 .action-btn {
   text-decoration: none;
   padding: 10px;
@@ -182,22 +166,12 @@ li a:hover:not(.active) {
   border: 2px solid #ccc;
 }
 
-<<<<<<< HEAD
-
-=======
-/* Tamanho maior para os ícones */
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 .action-btn i {
   font-size: 24px;
   transition: transform 0.3s, color 0.3s;
   display: inline-block;
 }
 
-<<<<<<< HEAD
-
-=======
-/* Botão de edição com cor e animação */
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 .action-btn.edit i {
   color: #4CAF50;
 }
@@ -207,11 +181,6 @@ li a:hover:not(.active) {
   transform: scale(1.2);
 }
 
-<<<<<<< HEAD
-
-=======
-/* Botão de exclusão com cor e animação */
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 .action-btn.delete i {
   color: #F44336;
 }
@@ -221,7 +190,6 @@ li a:hover:not(.active) {
   transform: scale(1.2);
 }
 
-<<<<<<< HEAD
 </style>
 
 <?php
@@ -241,79 +209,6 @@ if (!$conn) {
 }
 
 $select = "SELECT 
-=======
-
-
-</style>
-
-
-
-</head>
-<meta charset="utf-8"/>
-<BODY>
-<ul>
-  <li><a class="active" href="ChamadoFormularioInserir.php">Abrir Chamado</a></li>
-  <li><a href="Aberto.php">Aberto</a></li>
-  <li><a href="Fechado.php">Fechado</a></li>
-  <li><a href="tutorial.html">Tutorial</a></li>
-  <li style="float:right;"><a href="login.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li> <!-- "logout.php" -->
-</ul>
-  <br>
-  <br>
-  <br>
-  <header>
-   <b><font color="#">Lista chamado</font></b>
-</header>
-<br><br>
-
-<!-- Modal Structure -->
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Detalhes do Chamado</h2>
-    <p><strong>Usuário:</strong> <span id="modalUsuario"></span></p>
-    <p><strong>Título:</strong> <span id="modalTitulo"></span></p>
-    <p><strong>Descrição:</strong> <span id="modalDescricao"></span></p>
-    <p><strong>Tipo de Equipamento:</strong> <span id="modalTipoEquipamento"></span></p>
-    <p><strong>Equipamento:</strong> <span id="modalEquipamento"></span></p>
-    <p><strong>Setor:</strong> <span id="modalSetor"></span></p>
-    <p><strong>Data de Abertura:</strong> <span id="modalDataAbertura"></span></p>
-    <p><strong>Data de Fechamento:</strong> <span id="modalDataFechamento"></span></p>
-    <p><strong>Classificar:</strong> <span id="modalClassificar"></span></p>
-    <p><strong>Status:</strong> <span id="modalStatus"></span></p>
-    <p><strong>Comentário:</strong> <span id="modalComentario" class="modal-comment"></span></p>
-  </div>
-</div>
-
-
-<!-- Table with ticket data -->
-<table id="customers" border="1">
-      <tr>
-        <td><b>Código</b></td>
-        <td><b>Usuario</b></td>
-        <td><b>Tipo Chamado</b></td>
-        <td><b>Titulo</b></td>
-    <!--<td><b>Descricao</b></td> -->
-    <!--<td><b>Tipo Equipamento</b></td>
-        <td><b>Equipamento</b></td> -->
-        <td><b>Setor</b></td>
-        <td><b>Aberta</b></td>
-        <td><b>Fechado</b></td>
-        <td><b>Classificar</b></td>
-        <td><b>Status</b></td>
-        <td><b>Editar?</b></td>
-        <td><b>Excluir?</b></td>
-     </tr>
-  </header>
-
-       <?php
-            include_once("_conexao.php");
-
-            $conn = conectaBD();
-
-            $select = "
-SELECT 
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
     c.id_chamado,
     c.setor,
     c.titulo,
@@ -322,18 +217,13 @@ SELECT
     c.data_fechamento,
     c.classificar,
     c.status,
-<<<<<<< HEAD
     c.comentario,
-=======
-    c.comentario, 
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
     u.username,
     e.nomeModelo,
     tc.tipoChamado,
     t.tipoEquipamento
 FROM 
     Tipo_Chamado tc
-<<<<<<< HEAD
 JOIN 
     Chamado c ON tc.tipo_chamado_id = c.tipo_chamado_id
 JOIN 
@@ -369,7 +259,6 @@ $resultado = mysqli_query($conn, $select);
         <b><font color="#">Lista chamado</font></b>
     </header>
     <br><br>
-    <!-- Modal Structure -->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -381,13 +270,12 @@ $resultado = mysqli_query($conn, $select);
             <p><strong>Equipamento:</strong> <span id="modalEquipamento"></span></p>
             <p><strong>Setor:</strong> <span id="modalSetor"></span></p>
             <p><strong>Data de Abertura:</strong> <span id="modalDataAbertura"></span></p>
-            <p><strong>Data de Fechamento:</strong> <span id="modalDataFechamento"></span></p>
+            <p><strong>Data de Atualizada:</strong> <span id="modalDataFechamento"></span></p>
             <p><strong>Classificar:</strong> <span id="modalClassificar"></span></p>
             <p><strong>Status:</strong> <span id="modalStatus"></span></p>
             <p><strong>Comentário:</strong> <span id="modalComentario" class="modal-comment"></span></p>
         </div>
     </div>
-    <!-- Table with ticket data -->
     <table id="customers" border="1">
         <tr>
             <td><b>Código</b></td>
@@ -396,7 +284,7 @@ $resultado = mysqli_query($conn, $select);
             <td><b>Titulo</b></td>
             <td><b>Setor</b></td>
             <td><b>Aberta</b></td>
-            <td><b>Fechado</b></td>
+            <td><b>Atualizada</b></td>
             <td><b>Classificar</b></td>
             <td><b>Status</b></td>
             <td><b>Excluir?</b></td>
@@ -406,64 +294,23 @@ $resultado = mysqli_query($conn, $select);
             $data_fechamento = date("d/m/Y", strtotime($i['data_fechamento']));
         ?>
         <tr onclick="showDetails('<?php echo $i['username']; ?>', '<?php echo $i['titulo']; ?>', '<?php echo $i['descricao']; ?>', '<?php echo $i['tipoEquipamento']; ?>', '<?php echo $i['nomeModelo']; ?>', '<?php echo $i['setor']; ?>', '<?php echo $data_abertura; ?>', '<?php echo $data_fechamento; ?>', '<?php echo $i['classificar']; ?>','<?php echo $i['status']; ?>','<?php echo $i['comentario']; ?>')">
-=======
-JOIN
-    Chamado c
-ON
-    tc.tipo_chamado_id = c.tipo_chamado_id
-JOIN 
-    Equipamento e
-ON
-    c.id_equip = e.id_equip              
-JOIN 
-    Tipo_Equipamento t 
-ON 
-    e.tipo_equip_id = t.tipo_equip_id
-JOIN
-    Usuarios u
-ON
-    c.usuario_id = u.usuario_id
-WHERE
-    c.status = 'fechado'
-ORDER BY c.id_chamado DESC;
-";
-
-
-            $resultado = mysqli_query($conn,$select);
-
-
-            while($i = mysqli_fetch_assoc($resultado)) {
-              $data_abertura = date("d/m/Y", strtotime($i['data_abertura']));
-              $data_fechamento = date("d/m/Y", strtotime($i['data_fechamento']));
-          ?>
-          <tr onclick="showDetails('<?php echo $i['username']; ?>', '<?php echo $i['titulo']; ?>', '<?php echo $i['descricao']; ?>', '<?php echo $i['tipoEquipamento']; ?>', '<?php echo $i['nomeModelo']; ?>', '<?php echo $i['setor']; ?>', '<?php echo $data_abertura; ?>', '<?php echo $data_fechamento; ?>', '<?php echo $i['classificar']; ?>','<?php echo $i['status']; ?>','<?php echo $i['comentario']; ?>')">
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
             <td><?php echo $i['id_chamado']; ?></td>
             <td><?php echo $i['username']; ?></td>
             <td><?php echo $i['tipoChamado']; ?></td>
             <td><?php echo $i['titulo']; ?></td>
-<<<<<<< HEAD
-=======
-            
-            
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
             <td><?php echo $i['setor']; ?></td>
             <td><?php echo $data_abertura; ?></td>
             <td><?php echo $data_fechamento; ?></td>
             <td><?php echo $i['classificar']; ?></td>
             <td style="background-color: DarkGreen; color: white; padding: 10px; text-decoration: none; border-radius: 5px; text-align: center;"><b><?php echo $i['status']; ?></b></td>
-<<<<<<< HEAD
             <td><a href="_delete.php?var_cod=<?php echo $i['id_chamado']; ?>&tabela=Chamado" style="background-color: red; color: white; padding: 5px; text-decoration: none; border-radius: 5px;">Excluir</a></td>
         </tr>
         <?php } ?>
     </table>
     <h3><a class="button button1" href="ChamadoFormularioInserir.php">Cadastrar novo Chamado</a></h3>
     <script>
-        // Get the modal
         var modal = document.getElementById("myModal");
-        // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
-        // Function to show the modal with data
         function showDetails(usuario, titulo, descricao, tipoEquipamento, equipamento, setor, dataAbertura, dataFechamento, Classificar, status, comentario) {
             document.getElementById("modalUsuario").textContent = usuario;
             document.getElementById("modalTitulo").textContent = titulo;
@@ -478,11 +325,11 @@ ORDER BY c.id_chamado DESC;
             document.getElementById("modalComentario").textContent = comentario;
             modal.style.display = "block";
         }
-        // Close the modal when "x" is clicked
+        
         span.onclick = function() {
             modal.style.display = "none";
         }
-        // Close the modal when clicked outside of the modal
+        
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
@@ -491,55 +338,3 @@ ORDER BY c.id_chamado DESC;
     </script>
 </body>
 </html>
-=======
-            <td><a href="<?php echo"ChamadoFormularioResponder.php?var_id_chamado=". $i['id_chamado']."&var_tipoChamado=".$i['tipoChamado']."&var_titulo=".$i['titulo']."&var_descricao=".$i['descricao']."&var_tipoEquipamento=".$i['tipoEquipamento']."&var_nomeModelo=".$i['nomeModelo']."&var_setor=".$i['setor']."&var_classificar=".$i['classificar']?>"style="background-color: green; color: white; padding: 5px; text-decoration: none; border-radius: 5px;">Alterar</a></td>
-            <td><a href="_delete.php?var_cod=<?php echo $i['id_chamado']; ?>&tabela=Chamado"style="background-color: red; color: white; padding: 5px; text-decoration: none; border-radius: 5px;">Excluir</a></td>
-          </tr>
-          <?php
-            }
-          ?>
-        </table>
-
-        <h3><a class="button button1" href="ChamadoFormularioInserir.php">Cadastrar novo Chamado</a></h3>
-
-<script>
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// Function to show the modal with data
-function showDetails(usuario, titulo, descricao, tipoEquipamento, equipamento, setor, dataAbertura, dataFechamento, Classificar, status, comentario) {
-  document.getElementById("modalUsuario").textContent = usuario;
-  document.getElementById("modalTitulo").textContent = titulo;
-  document.getElementById("modalDescricao").textContent = descricao;
-  document.getElementById("modalTipoEquipamento").textContent = tipoEquipamento;
-  document.getElementById("modalEquipamento").textContent = equipamento;
-  document.getElementById("modalSetor").textContent = setor;
-  document.getElementById("modalDataAbertura").textContent = dataAbertura;
-  document.getElementById("modalDataFechamento").textContent = dataFechamento;
-  document.getElementById("modalClassificar").textContent = Classificar;
-  document.getElementById("modalStatus").textContent = status;
-  document.getElementById("modalComentario").textContent = comentario;
-
-  modal.style.display = "block";
-}
-
-// Close the modal when "x" is clicked
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// Close the modal when clicked outside of the modal
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
-
-</BODY>
-</HTML>
-
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d

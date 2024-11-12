@@ -1,10 +1,7 @@
 <!DOCTYPE HTML>
 <HTML>
 <head>
-<<<<<<< HEAD
 <title>Help Desk ADM TI</title>
-=======
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
 <style>
 
 .button {
@@ -32,8 +29,6 @@
   border: 2px solid #4CAF50;
 }
 
-
-
 .button_ {
   color: black;
   text-align: center;
@@ -48,7 +43,6 @@
   color: white;
   
 }
-
 
 header {
   margin:auto;
@@ -123,10 +117,7 @@ font, h3 {
 <BODY>
   <ul>
     <li><a class="active" href="indexTI.html">Home</a></li>
-<<<<<<< HEAD
     <li><a href="EquipamentoFormularioInserir.php">Cadastrar novo equipamento</a></li>
-=======
->>>>>>> 51bc93ed8758f546b6e365a6a8243eae2fd8af2d
   </ul>
   <br>
   <br>
@@ -179,7 +170,7 @@ font, h3 {
         <td><?php echo $i['nSerie']; ?></td>
         <td><?php echo $data_aquisicao; ?></td>
         <td><a href="<?php echo "EquipamentoFormularioEditar.php?var_id_equip=" . $i['id_equip'] . "&var_tipo_equip_id=" . $i['tipoEquipamento'] . "&var_nomeModelo=" . $i['nomeModelo'] . "&var_nSerie=" . $i['nSerie'] . "&var_data_aquisicao=" . $i['data_aquisicao']; ?>">Alterar</a></td>
-        <td><a class="button_ button_1" href="<?php echo "_delete.php?var_cod=" . $i['id_equip'] . "&tabela=Equipamento"; ?>">Excluir</a></td>
+        <td><a class="button_ button_1" href="<?php echo "_deleteTI.php?var_cod=" . $i['id_equip'] . "&tabela=Equipamento"; ?>">Excluir</a></td>
     </tr>
    <?php
    }
